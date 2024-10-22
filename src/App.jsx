@@ -3,7 +3,9 @@ import SplashScreen from './components/splash';
 import OnboardingScreen from './components/OnBoarding';
 import ForgotPasswordPage from './pages/ForgotPassword';
 import OTPVerificationPage from './pages/OtpVerify';
+import ResetPasswordPage from './pages/ResetPassword';
 import Login from './pages/login';
+import { SuccesResetPassword } from './pages/SuccesResetPassword';
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 const App = () => {
@@ -29,6 +31,9 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/otp-verification" element={<OTPVerificationPage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+        <Route path="/success-reset-password" element={<SuccesResetPassword />} />
+
       </Routes>
     </>
   );
