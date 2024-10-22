@@ -5,6 +5,7 @@ import ForgotPasswordPage from './pages/ForgotPassword';
 import OTPVerificationPage from './pages/OtpVerify';
 import ResetPasswordPage from './pages/ResetPassword';
 import Login from './pages/login';
+import HomePage from './pages/HomePage';
 import { SuccesResetPassword } from './pages/SuccesResetPassword';
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/success-reset-password" element={<SuccesResetPassword />} />
+        <Route path="/home" element={<HomePage />} />
 
       </Routes>
     </>

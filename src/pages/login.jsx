@@ -14,7 +14,7 @@ const LoginScreen = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(email, password);
+    navigate('/home');
   };
 
   const togglePasswordVisibility = () => {
