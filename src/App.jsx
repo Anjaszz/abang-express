@@ -1,42 +1,36 @@
-
 import React, { useState, useEffect } from 'react';
 import SplashScreen from './components/splash';
 import OnboardingScreen from './components/OnBoarding';
-import LoginScreen from './pages/login';
+import ForgotPasswordPage from './pages/ForgotPassword';
+import OTPVerificationPage from './pages/OtpVerify';
+import Login from './pages/login';
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [showOnboarding, setShowOnboarding] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const navigate = useNavigate(); // Tambahkan useNavigate untuk redirect otomatis ke halaman login
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 6000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleFinishOnboarding = () => {
-    setShowOnboarding(false);
-  };
-
-  const handleLogin = (email, password) => {
-    console.log('Email:', email, 'Password:', password);
-    setIsLoggedIn(true);
-  };
+  // Hapus state showOnboarding karena kita menggunakan route untuk menampilkan onboarding screen
 
   if (loading) {
     return <SplashScreen />;
   }
 
-  if (showOnboarding) {
-    return <OnboardingScreen onFinish={handleFinishOnboarding} />;
-  }
-
-
-
   return (
-  <LoginScreen/>
+    <>
+      <Routes>
+        <Route path="/" element={<OnboardingScreen />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/otp-verification" element={<OTPVerificationPage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
   );
 };
 
