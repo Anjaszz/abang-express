@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FaArrowLeft, FaChevronDown } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; // Import useHistory
+import { useNavigate } from 'react-router-dom'; 
 
-const editProfile = () => {
-    const navigate = useNavigate(); // Initialize useHistory
+const EditProfile = () => {
+    const navigate = useNavigate(); 
   const [address, setAddress] = useState('');
-  const [isPopupVisible, setPopupVisible] = useState(false); // State for pop-up visibility
+  const [isPopupVisible, setPopupVisible] = useState(false);
 
   const handleAddressChange = (e) => {
     if (e.target.value.length <= 150) {
@@ -15,25 +15,25 @@ const editProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your submit logic here
-    setPopupVisible(true); // Show the pop-up
+   
+    setPopupVisible(true); 
   };
 
   const handleClosePopup = () => {
     setPopupVisible(false);
-    navigate('/account'); // Navigate to the previous page
+    navigate('/account'); 
   };
 
   return (
     <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6">
-      {/* Header */}
+     
       <div className="flex items-center justify-between mb-6">
         <FaArrowLeft className="text-xl cursor-pointer" onClick={() => history.goBack()} />
         <h1 className="text-xl font-semibold">Ubah Profil</h1>
         <div></div>
       </div>
 
-      {/* Profile Picture Section */}
+     
       <div className="flex items-center mb-4">
         <img
           src="profile1.png"
@@ -45,9 +45,8 @@ const editProfile = () => {
         </div>
       </div>
 
-      {/* Form */}
       <form onSubmit={handleSubmit}>
-        {/* Nama */}
+        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Nama<span className="text-red-500">*</span>
@@ -59,7 +58,7 @@ const editProfile = () => {
           />
         </div>
 
-        {/* Email */}
+       
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Email<span className="text-red-500">*</span>
@@ -71,7 +70,7 @@ const editProfile = () => {
           />
         </div>
 
-        {/* Nomor Handphone */}
+       
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Nomor Handphone<span className="text-red-500">*</span>
@@ -83,7 +82,7 @@ const editProfile = () => {
           />
         </div>
 
-        {/* Tanggal Lahir */}
+        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Tanggal Lahir</label>
           <input
@@ -93,7 +92,7 @@ const editProfile = () => {
           />
         </div>
 
-        {/* Jenis Kelamin */}
+       
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Jenis Kelamin</label>
           <div className="relative">
@@ -104,7 +103,7 @@ const editProfile = () => {
           </div>
         </div>
 
-        {/* Provinsi */}
+        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Provinsi</label>
           <div className="relative">
@@ -115,7 +114,7 @@ const editProfile = () => {
           </div>
         </div>
 
-        {/* Kabupaten */}
+        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Kabupaten</label>
           <div className="relative">
@@ -126,7 +125,7 @@ const editProfile = () => {
           </div>
         </div>
 
-        {/* Alamat */}
+        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Alamat<span className="text-red-500">*</span>
@@ -141,7 +140,7 @@ const editProfile = () => {
           <p className="text-gray-500 text-xs flex justify-end mt-2">{address.length}/150</p>
         </div>
 
-        {/* Tombol Simpan */}
+        
         <button
           type="submit"
           className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
@@ -150,7 +149,7 @@ const editProfile = () => {
         </button>
       </form>
 
-      {/* Pop-up */}
+      
       {isPopupVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -168,4 +167,4 @@ const editProfile = () => {
   );
 };
 
-export default editProfile;
+export default EditProfile;

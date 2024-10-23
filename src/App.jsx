@@ -10,7 +10,7 @@ import { SuccesResetPassword } from './pages/SuccesResetPassword';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Pickup from './pages/PickUp';
 import Account from './pages/Account';
-import editProfile from './pages/editProfile';
+import EditProfile from './pages/editProfile';
 import ChangePassword from './pages/ChangePassword';
 
 const App = () => {
@@ -49,7 +49,7 @@ const App = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/pickup" element={<Pickup />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/edit-profile" element={<editProfile />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/change-password" element={<ChangePassword />} />
       </Routes>
     </>
