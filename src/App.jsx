@@ -8,18 +8,31 @@ import Login from './pages/login';
 import HomePage from './pages/HomePage';
 import { SuccesResetPassword } from './pages/SuccesResetPassword';
 import { Routes, Route, useNavigate } from "react-router-dom";
+import Pickup from './pages/PickUp';
+import Account from './pages/Account';
+import EditProfile from './pages/editProfile';
+import ChangePassword from './pages/ChangePassword';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // Tambahkan useNavigate untuk redirect otomatis ke halaman login
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [isFirstLoad, setIsFirstLoad] = useState(true); // State untuk mengecek apakah ini pertama kali load
+  const navigate = useNavigate();
 
-  // Hapus state showOnboarding karena kita menggunakan route untuk menampilkan onboarding screen
+  useEffect(() => {
+    const isFirstTime = localStorage.getItem('isFirstTime');
+
+    if (!isFirstTime) {
+      // Jika ini pertama kali dibuka, set splash screen
+      const timer = setTimeout(() => {
+        setLoading(false);
+        localStorage.setItem('isFirstTime', 'true'); // Simpan status bahwa aplikasi sudah dibuka
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      // Jika sudah pernah dibuka, langsung set loading ke false
+      setLoading(false);
+    }
+  }, []);
 
   if (loading) {
     return <SplashScreen />;
@@ -35,7 +48,10 @@ const App = () => {
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/success-reset-password" element={<SuccesResetPassword />} />
         <Route path="/home" element={<HomePage />} />
-
+        <Route path="/pickup" element={<Pickup />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/change-password" element={<ChangePassword />} />
       </Routes>
     </>
   );

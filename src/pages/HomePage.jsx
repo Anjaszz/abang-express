@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { AiFillHome, AiFillBell, AiOutlineUser } from 'react-icons/ai';
 import { FaBox, FaMapMarkerAlt, FaTruck, FaTruckLoading, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
-
+import BottomNavBar from '../components/BottomNavbar';
+import { useNavigate } from 'react-router';
 const HomePage = () => {
   const [isOnline, setIsOnline] = useState(false);
+  const navigate = useNavigate();
 
   const toggleOnlineStatus = () => {
     setIsOnline(!isOnline);
   };
-
+  const handleSeeAll = () => {
+    navigate('/pickup')
+  }
   return (
-    <div className="bg-white min-h-screen">
+<div className="bg-white min-h-screen">
    <div className="bg-red-500 text-white text-center py-4 relative h-36 ">
   <img
     src="city.svg"
@@ -52,34 +55,66 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mx-4 mt-4">
-        {[
-          { icon: <FaTruck className="text-red-500 text-2xl" />, label: 'Pending', count: '1 pickup' },
-          { icon: <FaTruckLoading className="text-red-500 text-2xl" />, label: 'In Progress', count: '1 pickup' },
-          { icon: <FaCheckCircle className="text-red-500 text-2xl" />, label: 'Success', count: '1 pickup' },
-          { icon: <FaExclamationCircle className="text-red-500 text-2xl" />, label: 'Trouble', count: '1 pickup' },
-        ].map(({ icon, label, count }, index) => (
-          <div key={index} className="bg-white shadow-md rounded-xl p-4 flex items-center">
-            <div className="flex items-center justify-center mb-2">{icon}</div>
-            <div className="ml-4 text-center">
-              <div className="text-gray-500 text-sm">{label}</div>
-              <div className="text-sm font-bold">{count}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+<div className="grid grid-cols-2 gap-4 mx-4 mt-4">
+  {/* Pending */}
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center ">
+    <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
+      <img src="Truck.svg" alt="Pending Icon" className="w-8 h-8" />
+    </div>
+    <div className="ml-4 text-center">
+      <div className="text-gray-500 text-sm">Pending</div>
+      <div className="text-sm font-bold">1 pickup</div>
+    </div>
+  </div>
+
+  {/* In Progress */}
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center">
+    <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
+      <img src="Truck.svg" alt="In Progress Icon" className="w-8 h-8" />
+    </div>
+    <div className="ml-4 text-center">
+      <div className="text-gray-500 text-sm">InProgress</div>
+      <div className="text-sm font-bold">1 pickup</div>
+    </div>
+  </div>
+
+  {/* Success */}
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center">
+    <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
+      <img src="Truck.svg" alt="Success Icon" className="w-8 h-8" />
+    </div>
+    <div className="ml-4 text-center">
+      <div className="text-gray-500 text-sm">Success</div>
+      <div className="text-sm font-bold">1 pickup</div>
+    </div>
+  </div>
+
+  {/* Trouble */}
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center">
+    <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
+      <img src="Truck.svg" alt="Trouble Icon" className="w-8 h-8" />
+    </div>
+    <div className="ml-4 text-center">
+      <div className="text-gray-500 text-sm">Trouble</div>
+      <div className="text-sm font-bold">1 pickup</div>
+    </div>
+  </div>
+</div>
+
 
       <div className="mx-4 mt-8">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-bold">Pending</h3>
-          <a href="#" className="text-red-500 font-semibold">
+          <a onClick={handleSeeAll} className="text-red-500 font-semibold">
             Lihat Semua
           </a>
         </div>
         <div className="bg-white shadow-md rounded-xl p-4 mt-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <FaTruck className="text-red-500 text-2xl" />
+            <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
+      <img src="Truck.svg" alt="Trouble Icon" className="w-8 h-8" />
+    </div>
               <div className="ml-4">
                 <div className="text-black font-bold">#1234566788</div>
                 <div className="text-gray-500 text-md">10 Sep 2021</div>
@@ -115,51 +150,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md">
-  <div className="flex justify-around py-2">
-    {[
-      { 
-        icon: <img src="Active.svg" alt="Home Icon" className="w-6 h-6" />, 
-        label: 'Beranda' 
-      },
-      { 
-        icon: <img src="Active.svg" alt="Nearby Icon" className="w-6 h-6" />, 
-        label: 'Nearby' 
-      },
-      { 
-        icon: (
-          <div className="relative">
-            <div 
-              className="bg-red-500 rounded-full " 
-              style={{ transform: 'translateY(-10px)' }}  // Mengangkat sedikit ikon Paket Anda
-            >
-              <img src="Active.svg" alt="Paket Icon" className="w-6 h-6" />
-            </div>
-          </div>
-        ), 
-        label: 'Paket Anda' 
-      },
-      { 
-        icon: <img src="Active.svg" alt="Notifications Icon" className="w-6 h-6" />, 
-        label: 'Notifications' 
-      },
-      { 
-        icon: <img src="Active.svg" alt="Account Icon" className="w-6 h-6" />, 
-        label: 'Account' 
-      },
-    ].map(({ icon, label }, index) => (
-      <div key={index} className="text-center">
-        <div className="ml-2">
-          {icon}
-        </div>
-        <div className="text-gray-500 text-xs">{label}</div>
-      </div>
-    ))}
-  </div>
-</div>
-
-
+      <BottomNavBar/>
     </div>
   );
 };
