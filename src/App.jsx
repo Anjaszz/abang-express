@@ -15,18 +15,17 @@ import ChangePassword from './pages/ChangePassword';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [isFirstLoad, setIsFirstLoad] = useState(true); // State untuk mengecek apakah ini pertama kali load
-  const navigate = useNavigate();
+  const [isFirstLoad, setIsFirstLoad] = useState(true); 
 
   useEffect(() => {
     const isFirstTime = localStorage.getItem('isFirstTime');
 
     if (!isFirstTime) {
-      // Jika ini pertama kali dibuka, set splash screen
+     
       const timer = setTimeout(() => {
         setLoading(false);
-        localStorage.setItem('isFirstTime', 'true'); // Simpan status bahwa aplikasi sudah dibuka
-      }, 6000);
+        localStorage.setItem('isFirstTime', 'true'); 
+      }, 4000);
       return () => clearTimeout(timer);
     } else {
       // Jika sudah pernah dibuka, langsung set loading ke false
