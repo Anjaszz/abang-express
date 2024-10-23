@@ -10,7 +10,7 @@ import { SuccesResetPassword } from './pages/SuccesResetPassword';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Pickup from './pages/PickUp';
 import Account from './pages/Account';
-import EditProfile from './pages/editProfile';
+import EditProfile from './pages/EditProfile';
 import ChangePassword from './pages/ChangePassword';
 
 const App = () => {
