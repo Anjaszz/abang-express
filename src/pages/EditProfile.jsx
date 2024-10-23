@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaArrowLeft, FaChevronDown } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'; // Import useHistory
 
-const EditProfile = () => {
+const editProfile = () => {
     const navigate = useNavigate(); // Initialize useHistory
   const [address, setAddress] = useState('');
   const [isPopupVisible, setPopupVisible] = useState(false); // State for pop-up visibility
@@ -168,4 +168,4 @@ const EditProfile = () => {
   );
 };
 
-export default EditProfile;
+export default editProfile;
