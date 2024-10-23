@@ -18,7 +18,7 @@ const BottomNavBar = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md">
+    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md border ">
       <div className="flex justify-around py-2">
         {/* Beranda */}
         <div className="text-center" onClick={() => handleMenuClick("home")}>
@@ -47,7 +47,7 @@ const BottomNavBar = () => {
         {/* Paket Anda */}
         <div className="text-center relative" onClick={() => handleMenuClick("packages")}>
           <div className="">
-            <div className="bg-red-500 rounded-full p-3 w-12 h-12 absolute bottom-6 left-3 mx-auto">
+            <div className="bg-red-500 rounded-full border-2 shadow-md border-gray-50 p-3 w-12 h-12 absolute bottom-6 left-3 mx-auto">
               <img src="Paket.svg" alt="Paket Anda Icon" className="w-6 h-6" />
             </div>
           </div>

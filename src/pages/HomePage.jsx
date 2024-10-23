@@ -12,6 +12,11 @@ const HomePage = () => {
   const handleSeeAll = () => {
     navigate('/pickup')
   }
+
+  const handleTabClick = (status) => {
+    navigate(`/pickup?tab=${status}`);
+  };
+
   return (
 <div className="bg-white min-h-screen">
    <div className="bg-red-500 text-white text-center py-4 relative h-36 ">
@@ -57,7 +62,7 @@ const HomePage = () => {
 
 <div className="grid grid-cols-2 gap-4 mx-4 mt-4">
   {/* Pending */}
-  <div className="bg-white shadow-md rounded-xl p-3 flex items-center ">
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center " onClick={() => handleTabClick('Pending')}>
     <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
       <img src="Truck.svg" alt="Pending Icon" className="w-8 h-8" />
     </div>
@@ -68,7 +73,7 @@ const HomePage = () => {
   </div>
 
   {/* In Progress */}
-  <div className="bg-white shadow-md rounded-xl p-3 flex items-center">
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center"  onClick={() => handleTabClick('In Progres')}>
     <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
       <img src="Truck.svg" alt="In Progress Icon" className="w-8 h-8" />
     </div>
@@ -80,7 +85,7 @@ const HomePage = () => {
 
   {/* Success */}
   <div className="bg-white shadow-md rounded-xl p-3 flex items-center">
-    <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
+    <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg" onClick={() => handleTabClick('Success')}>
       <img src="Truck.svg" alt="Success Icon" className="w-8 h-8" />
     </div>
     <div className="ml-4 text-center">
@@ -90,7 +95,7 @@ const HomePage = () => {
   </div>
 
   {/* Trouble */}
-  <div className="bg-white shadow-md rounded-xl p-3 flex items-center">
+  <div className="bg-white shadow-md rounded-xl p-3 flex items-center" onClick={() => handleTabClick('Trouble')}>
     <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">
       <img src="Truck.svg" alt="Trouble Icon" className="w-8 h-8" />
     </div>
@@ -109,7 +114,7 @@ const HomePage = () => {
             Lihat Semua
           </a>
         </div>
-        <div className="bg-white shadow-md rounded-xl p-4 mt-4">
+        <div className="bg-white shadow-md rounded-xl p-4 mt-4" onClick={() => handleTabClick('Pending')}>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
             <div className="flex items-center justify-center mb-2 bg-red-100 p-2 rounded-lg">

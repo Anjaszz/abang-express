@@ -1,8 +1,62 @@
-# React + Vite
+# Abang Express - Aplikasi React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ini Adalah Slicing dari UI/UX platform Abang Express menggunakan React + Tailwind
 
-Currently, two official plugins are available:
+## Daftar Isi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Prasyarat](#prasyarat)
+- [Instalasi](#instalasi)
+- [Menjalankan Proyek](#menjalankan-proyek)
+
+## Prasyarat
+
+Pastikan telah menginstal :
+
+- [Node.js](https://nodejs.org/) (v16 atau lebih baru)
+- [npm](https://www.npmjs.com/) atau [yarn](https://yarnpkg.com/)
+
+## Instalasi
+
+1. Clone repositori:
+
+    ```bash
+    https://github.com/Anjaszz/abang-express.git
+    ```
+
+2. Arahkan ke direktori proyek:
+
+    ```bash
+    cd abang-express
+    ```
+
+3. Instal dependensi proyek:
+
+    Jika Anda menggunakan npm:
+
+    ```bash
+    npm install
+    ```
+
+    Atau jika Anda menggunakan yarn:
+
+    ```bash
+    yarn install
+    ```
+
+## Menjalankan Proyek
+
+1. Setelah menginstal dependensi, Anda dapat memulai server pengembangan Vite.
+
+    Jika Anda menggunakan npm:
+
+    ```bash
+    npm run dev
+    ```
+
+    Atau jika Anda menggunakan yarn:
+
+    ```bash
+    yarn dev
+    ```
+
+2. Buka browser Anda dan pergi ke `http://localhost:5173` (atau port yang disarankan oleh Vite) untuk melihat aplikasi beraksi.

@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai'; // Import icon back
-import { useNavigate } from 'react-router';
+import { useNavigate,useLocation } from 'react-router';
 const Pickup = () => {
   const [activeTab, setActiveTab] = useState('Pending');
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const tab = queryParams.get('tab');
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [location]);
   const pickupData = {
     Pending: [
       {

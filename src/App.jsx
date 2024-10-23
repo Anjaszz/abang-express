@@ -26,7 +26,7 @@ const App = () => {
       const timer = setTimeout(() => {
         setLoading(false);
         localStorage.setItem('isFirstTime', 'true'); // Simpan status bahwa aplikasi sudah dibuka
-      }, 1000);
+      }, 6000);
       return () => clearTimeout(timer);
     } else {
       // Jika sudah pernah dibuka, langsung set loading ke false

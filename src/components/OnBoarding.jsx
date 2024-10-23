@@ -17,7 +17,7 @@ const OnboardingScreen = () => {
       </p>
       <button
         onClick={handleFinish}
-        className="px-6 py-3 bg-red-500 font-semibold rounded-2xl hover:bg-red-600 w-72"
+        className="px-6 py-3 text-white bg-red-600 font-semibold rounded-2xl hover:bg-red-700 w-72"
       >
         Mulai Sekarang
       </button>
