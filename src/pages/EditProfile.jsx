@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { FaArrowLeft, FaChevronDown } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; 
+import React, { useState } from "react";
+import { FaArrowLeft, FaChevronDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
-    const navigate = useNavigate(); 
-  const [address, setAddress] = useState('');
+  const navigate = useNavigate();
+  const [address, setAddress] = useState("");
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   const handleAddressChange = (e) => {
@@ -15,25 +15,26 @@ const EditProfile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
-    setPopupVisible(true); 
+
+    setPopupVisible(true);
   };
 
   const handleClosePopup = () => {
     setPopupVisible(false);
-    navigate('/account'); 
+    navigate("/account");
   };
 
   return (
     <div className="max-w-md mx-auto bg-white shadow-md rounded-lg p-6">
-     
       <div className="flex items-center justify-between mb-6">
-        <FaArrowLeft className="text-xl cursor-pointer" onClick={() => history.goBack()} />
+        <FaArrowLeft
+          className="text-xl cursor-pointer"
+          onClick={handleClosePopup}
+        />
         <h1 className="text-xl font-semibold">Ubah Profil</h1>
         <div></div>
       </div>
 
-     
       <div className="flex items-center mb-4">
         <img
           src="profile1.png"
@@ -46,7 +47,6 @@ const EditProfile = () => {
       </div>
 
       <form onSubmit={handleSubmit}>
-        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Nama<span className="text-red-500">*</span>
@@ -58,7 +58,6 @@ const EditProfile = () => {
           />
         </div>
 
-       
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Email<span className="text-red-500">*</span>
@@ -70,7 +69,6 @@ const EditProfile = () => {
           />
         </div>
 
-       
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Nomor Handphone<span className="text-red-500">*</span>
@@ -82,9 +80,10 @@ const EditProfile = () => {
           />
         </div>
 
-        
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Tanggal Lahir</label>
+          <label className="block text-sm font-medium mb-1">
+            Tanggal Lahir
+          </label>
           <input
             type="text"
             className="w-full border rounded-lg px-3 py-2"
@@ -92,9 +91,10 @@ const EditProfile = () => {
           />
         </div>
 
-       
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Jenis Kelamin</label>
+          <label className="block text-sm font-medium mb-1">
+            Jenis Kelamin
+          </label>
           <div className="relative">
             <select className="w-full border rounded-lg px-3 py-2 appearance-none">
               <option>Laki - Laki</option>
@@ -103,7 +103,6 @@ const EditProfile = () => {
           </div>
         </div>
 
-        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Provinsi</label>
           <div className="relative">
@@ -114,7 +113,6 @@ const EditProfile = () => {
           </div>
         </div>
 
-        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Kabupaten</label>
           <div className="relative">
@@ -125,7 +123,6 @@ const EditProfile = () => {
           </div>
         </div>
 
-        
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">
             Alamat<span className="text-red-500">*</span>
@@ -137,10 +134,11 @@ const EditProfile = () => {
             onChange={handleAddressChange}
             placeholder="Masukkan alamat..."
           />
-          <p className="text-gray-500 text-xs flex justify-end mt-2">{address.length}/150</p>
+          <p className="text-gray-500 text-xs flex justify-end mt-2">
+            {address.length}/150
+          </p>
         </div>
 
-        
         <button
           type="submit"
           className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition"
@@ -149,11 +147,12 @@ const EditProfile = () => {
         </button>
       </form>
 
-      
       {isPopupVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-lg font-semibold mb-4">Data berhasil disimpan!</h2>
+            <h2 className="text-lg font-semibold mb-4">
+              Data berhasil disimpan!
+            </h2>
             <button
               onClick={handleClosePopup}
               className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition"

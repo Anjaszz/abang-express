@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { HeaderForgotPassword } from '../components/HeaderForgotPassword';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { HeaderForgotPassword } from "../components/HeaderForgotPassword";
 
 const ForgotPasswordPage = () => {
-  const [emailOrPhone, setEmailOrPhone] = useState('');
+  const [emailOrPhone, setEmailOrPhone] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Kirim email/nomor telepon ke server
-    console.log('Email/Phone:', emailOrPhone);
-    // Arahkan ke halaman OTP setelah sukses
-    navigate('/otp-verification',{ state: { email: emailOrPhone } });
+
+    console.log("Email/Phone:", emailOrPhone);
+
+    navigate("/otp-verification", { state: { email: emailOrPhone } });
   };
 
   return (
     <div className=" w-screen flex flex-col justify-center items-center bg-gray-100">
       <div className="w-screen h-screen  bg-white p-6">
-        <HeaderForgotPassword/>
-        <h2 className="text-xl font-semibold mb-2 text-left">Atur Ulang Kata Sandi</h2>
+        <HeaderForgotPassword />
+        <h2 className="text-xl font-semibold mb-2 text-left">
+          Atur Ulang Kata Sandi
+        </h2>
         <p className="text-gray-500 mb-6 text-left text-xs">
-          Masukkan email atau nomor HP yang terdaftar. Kami akan mengirimkan kode verifikasi untuk mengatur ulang kata sandi.
+          Masukkan email atau nomor HP yang terdaftar. Kami akan mengirimkan
+          kode verifikasi untuk mengatur ulang kata sandi.
         </p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -33,7 +36,10 @@ const ForgotPasswordPage = () => {
               required
             />
           </div>
-          <button type="submit" className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition">
+          <button
+            type="submit"
+            className="w-full bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 transition"
+          >
             Lanjutkan
           </button>
         </form>

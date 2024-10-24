@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
-import { FaLock, FaStar, FaBell, FaQuestionCircle, FaHeart, FaSignOutAlt, FaChevronRight } from 'react-icons/fa';
-import BottomNavBar from '../components/BottomNavbar';
-import LogoutPopup from '../components/PopupLogout'; // Import komponen popup
-import { useNavigate } from 'react-router-dom';
-
+import React, { useState } from "react";
+import {
+  FaLock,
+  FaStar,
+  FaBell,
+  FaQuestionCircle,
+  FaHeart,
+  FaSignOutAlt,
+  FaChevronRight,
+} from "react-icons/fa";
+import BottomNavBar from "../components/BottomNavbar";
+import LogoutPopup from "../components/PopupLogout"; 
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -13,21 +20,21 @@ const Account = () => {
     setShowPopup(true);
   };
 
-  const HandleEdit = () =>{
-    navigate('/edit-profile')
-  }
+  const HandleEdit = () => {
+    navigate("/edit-profile");
+  };
   const confirmLogout = () => {
     setShowPopup(false);
-    navigate('/login'); // Redirect to login page
+    navigate("/login"); 
   };
 
   const cancelLogout = () => {
     setShowPopup(false);
   };
 
-  const handleChangePass = () =>{
-    navigate('/change-password')
-  }
+  const handleChangePass = () => {
+    navigate("/change-password");
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -49,12 +56,20 @@ const Account = () => {
             <div className="text-gray-500">+62822-8058-1234</div>
             <div className="text-gray-500">advenreey@gmail.com</div>
           </div>
-          <div className="text-red-500 font-bold cursor-pointer" onClick={HandleEdit}>Ubah</div>
+          <div
+            className="text-red-500 font-bold cursor-pointer"
+            onClick={HandleEdit}
+          >
+            Ubah
+          </div>
         </div>
 
         {/* Menu Section */}
         <div className="mt-4">
-          <div className="bg-white rounded-lg p-4 flex items-center mb-4" onClick={handleChangePass}>
+          <div
+            className="bg-white rounded-lg p-4 flex items-center mb-4"
+            onClick={handleChangePass}
+          >
             <FaLock className="mr-4 text-gray-500" />
             <div className="flex-1">Ganti Kata Sandi</div>
             <FaChevronRight className="text-gray-500" />
@@ -84,7 +99,10 @@ const Account = () => {
             <FaChevronRight className="text-gray-500" />
           </div>
 
-          <div className="bg-white rounded-lg  p-4 flex items-center cursor-pointer" onClick={handleLogoutClick}>
+          <div
+            className="bg-white rounded-lg  p-4 flex items-center cursor-pointer"
+            onClick={handleLogoutClick}
+          >
             <FaSignOutAlt className="mr-4 text-gray-500" />
             <div className="flex-1">Keluar</div>
           </div>
@@ -93,10 +111,7 @@ const Account = () => {
 
       {/* Popup Box */}
       {showPopup && (
-        <LogoutPopup
-          onConfirm={confirmLogout}
-          onCancel={cancelLogout}
-        />
+        <LogoutPopup onConfirm={confirmLogout} onCancel={cancelLogout} />
       )}
 
       <BottomNavBar />

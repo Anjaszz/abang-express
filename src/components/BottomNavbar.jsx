@@ -3,18 +3,16 @@ import { useNavigate } from "react-router-dom";
 
 const BottomNavBar = () => {
   const navigate = useNavigate();
-  
-  // State untuk melacak menu yang aktif
+
   const [activeMenu, setActiveMenu] = useState("home");
 
   const handleMenuClick = (menu) => {
-    setActiveMenu(menu); // Set menu yang aktif
+    setActiveMenu(menu);
     if (menu === "home") {
-      navigate("/home"); // Arahkan ke halaman Home
+      navigate("/home");
     } else if (menu === "account") {
-      navigate("/account"); // Arahkan ke halaman Account
+      navigate("/account");
     }
-    // Tambahkan else if untuk menu lainnya jika diperlukan
   };
 
   return (
@@ -24,7 +22,11 @@ const BottomNavBar = () => {
         <div className="text-center" onClick={() => handleMenuClick("home")}>
           <div className="ml-2">
             <img
-              src={activeMenu === "home" ? "HomeActive.svg" : "HomeInactive.svg"}
+              src={
+                activeMenu === "home"
+                  ? "IconNav/HomeActive.svg"
+                  : "IconNav/HomeInactive.svg"
+              }
               alt="Home Icon"
               className="w-6 h-6 mx-auto"
             />
@@ -36,7 +38,7 @@ const BottomNavBar = () => {
         <div className="text-center" onClick={() => handleMenuClick("nearby")}>
           <div className="ml-2">
             <img
-              src={activeMenu === "nearby" ? "gambar2.png" : "Nearby.svg"}
+              src="IconNav/Nearby.svg"
               alt="Nearby Icon"
               className="w-6 h-6 mx-auto"
             />
@@ -45,32 +47,48 @@ const BottomNavBar = () => {
         </div>
 
         {/* Paket Anda */}
-        <div className="text-center relative" onClick={() => handleMenuClick("packages")}>
+        <div
+          className="text-center relative"
+          onClick={() => handleMenuClick("packages")}
+        >
           <div className="">
-            <div className="bg-red-500 rounded-full border-2 shadow-md border-gray-50 p-3 w-12 h-12 absolute bottom-6 left-3 mx-auto">
-              <img src="Paket.svg" alt="Paket Anda Icon" className="w-6 h-6" />
+            <div className="bg-red-500 rounded-full border-2 shadow-md border-gray-50 p-3 w-12 h-12 absolute bottom-6 left-4 mx-auto">
+              <img
+                src="IconNav/Paket.svg"
+                alt="Paket Anda Icon"
+                className="w-6 h-6"
+              />
             </div>
           </div>
-          <div className="text-gray-500 text-xs relative top-6">Paket Anda</div>
+          <div className="text-gray-500 text-xs relative top-6 left-2">
+            Paket Anda
+          </div>
         </div>
 
         {/* Notifications */}
-        <div className="text-center" onClick={() => handleMenuClick("notifications")}>
-          <div className="ml-2">
+        <div
+          className="text-center"
+          onClick={() => handleMenuClick("notifications")}
+        >
+          <div className="ml-3">
             <img
-              src={activeMenu === "notifications" ? "gambar2.png" : "Notification.svg"}
+              src="IconNav/Notification.svg"
               alt="Notifications Icon"
               className="w-6 h-6 mx-auto"
             />
           </div>
-          <div className="text-gray-500 text-xs">Notifications</div>
+          <div className="text-gray-500 text-xs ">Notifications</div>
         </div>
 
         {/* Account */}
         <div className="text-center" onClick={() => handleMenuClick("account")}>
           <div className="ml-2">
             <img
-              src={activeMenu === "account" ? "AccActive.png" : "AccInactive.png"}
+              src={
+                activeMenu === "account"
+                  ? "IconNav/AccActive.png"
+                  : "IconNav/AccInactive.png"
+              }
               alt="Account Icon"
               className="w-6 h-6 mx-auto"
             />
