@@ -2,6 +2,8 @@
 
 Ini Adalah Slicing dari UI/UX platform Abang Express menggunakan React + Tailwind
 
+Demo App : https://abang-express.vercel.app/
+
 ## Daftar Isi
 
 - [Prasyarat](#prasyarat)
