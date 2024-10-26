@@ -12,7 +12,7 @@ Demo App : https://abang-express.vercel.app/
 
 ## Prasyarat
 
-Pastikan telah menginstal :
+Pastikan anda telah menginstal :
 
 - [Node.js](https://nodejs.org/) (v16 atau lebih baru)
 - [npm](https://www.npmjs.com/) atau [yarn](https://yarnpkg.com/)
